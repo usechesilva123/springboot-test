@@ -19,15 +19,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.test.test.modelo.Medico;
 import com.test.test.service.MedicoService;
 
-
+/**
+ * @date 24/03/2021
+ * Controlador principal de la aplicación , recurso /medicos
+ * @author diego.useche
+ */
 @RestController
 @RequestMapping("/medicos")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MedicoControlador {
 	
+	/*
+	 * Instancia del servicio
+	 */
 	@Autowired
 	private MedicoService medicoService;
 	
+	/*
+	 * Metodo encargado de guardar un medico
+	 */
 	@PostMapping
 	private ResponseEntity<Medico> guardar(@RequestBody Medico medico){
 		Medico temp = medicoService.create(medico);
@@ -40,7 +50,11 @@ public class MedicoControlador {
 		}
 		
 	}
+
 	
+	/*
+	 * Metodo encargado de obtener la lista de medicos
+	 */
 	@GetMapping
 	private ResponseEntity<List<Medico>> lista(){		
 		try {
@@ -51,7 +65,11 @@ public class MedicoControlador {
 		}
 		
 	}
+
 	
+	/*
+	 * Metodo encargado de obtener un medico por su id
+	 */
 	@GetMapping(path = {"/{id}"})
 	private ResponseEntity<Optional<Medico>> listarId(@PathVariable("id") Long  id){		
 		try {
@@ -62,7 +80,11 @@ public class MedicoControlador {
 		}
 		
 	}
+
 	
+	/*
+	 * Metodo encargado de eliminar un medico
+	 */
 	@DeleteMapping(path = {"/{id}"})
 	private ResponseEntity<Void> delete(@PathVariable("id") Long  id){		
 		try {

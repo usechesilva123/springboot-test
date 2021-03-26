@@ -6,6 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @date 24/03/2021
+ * Modelos de la aplicación , objeto Medico
+ * @author diego.useche
+ */
 @Entity
 @Table(name="medico")
 public class Medico {
